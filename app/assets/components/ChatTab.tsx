@@ -1,46 +1,59 @@
 import React, { JSXElementConstructor } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { IChatTab } from '../types';
 
 const ChatTab:JSXElementConstructor<{chat:IChatTab}>=({chat})=> {
     
     return (
-        <View style={styles.container}>
-            <Text style={styles.name}>{chat.name}</Text>
-            <Text style={styles.avatar}>{chat.avatar}</Text>
-            <Text style={styles.lastMessage}>{`${chat.sender?'You: ':''}${chat.lastMessage} ${chat.timeStamp}`}</Text>
-            <Text style={styles.readMark}>{chat.readMark}</Text>
-        </View>
+        <TouchableOpacity>
+            <View style={styles.container}>
+                <Text style={styles.name}>{chat.name}</Text>
+                <Image
+                    style={styles.avatar}
+                    source={{
+                    uri:
+                        // uri will eventually equal chat.avatar
+                        'https://picsum.photos/seed/picsum/200/300',
+                    }}
+                    //borderRadius style will help us make the Round Shape Image
+                />
+                <Text style={styles.lastMessage}>{`${chat.sender?'You: ':''}${chat.lastMessage} ${chat.timeStamp}`}</Text>
+                <Text style={styles.readMark}>{chat.readMark}</Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 const styles = StyleSheet.create({
     container:{
-        height:100,
-        borderColor:'red',
-        borderWidth:1,
+        height:75,
+        // borderColor:'red',
+        // borderWidth:1,
         width:Dimensions.get('window').width,
         flexDirection:'row',
         position:'relative',
     },
     name:{
         position:'absolute',
-        top:10,
+        top:20,
         left:70
     },
     avatar:{
         position:'absolute',
-        top:10,
-        left:5
+        top:17,
+        left:5,
+        width: 50,
+        height: 50,
+        borderRadius: 50 / 2
     },
     lastMessage:{
         position:'absolute',
-        top:40,
+        top:45,
         left:70
     },
     readMark:{
         position:'absolute',
-        bottom:10,
+        bottom:15,
         right:40
     },
 })

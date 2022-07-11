@@ -6,3 +6,8 @@ export interface IChatTab{
     timeStamp:string,
     sender:boolean
 }
+export interface IOnline{
+    name:string,
+    avatar:string,
+    isOnline:boolean
+}

@@ -1,4 +1,4 @@
-import { IChatTab } from "./app/assets/types"
+import { IChatTab, IOnline } from "./app/assets/types"
 
 export const ChatTabs:IChatTab[]=[
     {
@@ -81,4 +81,32 @@ export const ChatTabs:IChatTab[]=[
         timeStamp:'February 4',
         sender:false
     },
+]
+
+export const OnlineUsers:IOnline[]=[
+    {
+        name:'Babatunde Alabi',
+        avatar:'image1.jpg',
+        isOnline:true
+    },
+    {
+        name:'Innocent Wanda',
+        avatar:'image3.jpg',
+        isOnline:true
+    },
+    {
+        name:'Samiir Daahir',
+        avatar:'image6.jpg',
+        isOnline:false
+    },
+    {
+        name:'Francety James',
+        avatar:'image8.jpg',
+        isOnline:true
+    },
+    {
+        name:'Emmanuel Ramson',
+        avatar:'image10.jpg',
+        isOnline:false
+    }
 ]

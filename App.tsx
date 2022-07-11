@@ -1,23 +1,31 @@
 import { JSXElementConstructor } from 'react';
-import { Button, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import ChatsView from './app/assets/components/ChatsView';
-import Header from './app/assets/components/Header';
+import { Dimensions, StyleSheet, View } from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
+import Footer from './app/assets/components/Footer';
+import ChatScreen from './app/assets/screens/ChatScreen';
 
 const App:JSXElementConstructor<{}>=()=>{
-  console.log('what!')
+  
   return (
     <View style={styles.container}>
-      <Header/>
-      <ChatsView/>
+      <Router>
+        <Scene key = "root">
+          <Scene key = "home" component = {ChatScreen} title = "Home" initial = {true} />
+          {/* <Scene key = "about" component = {About} title = "About" /> */}
+        </Scene>
+      </Router>
+      {/* <Footer/> */}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
+    height:Dimensions.get('window').height,
+    width:Dimensions.get('window').width,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    // alignItems: 'center',
     justifyContent: 'center',
   },
 });
